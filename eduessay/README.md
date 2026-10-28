@@ -1,29 +1,32 @@
-# EduEssay MVP 0.1
+# EduEssay MVP 0.2
 
-Prototipe frontend statis untuk platform ujian esai SMA/SMK/SLB.
+Prototipe sederhana bergaya Google Forms untuk ujian esai SMA/SMK/SLB.
 
-## Isi versi ini
-- Dashboard ringkasan.
-- Pembuatan ujian dan soal esai demo.
-- Ruang siswa untuk mengirim jawaban demo.
-- Penilaian manual dan umpan balik.
-- Rekap hasil serta ekspor CSV.
-- Data demo disimpan di `localStorage` browser.
+## Fitur prototipe
+- Form builder: judul, petunjuk, mata pelajaran, durasi, pertanyaan esai, rubrik, dan nilai maksimum.
+- Pratinjau formulir siswa.
+- Pengiriman jawaban demo.
+- Daftar jawaban untuk ditinjau guru.
+- Kolom nilai akhir dan umpan balik guru.
+- Ekspor jawaban dan nilai ke CSV.
+- Penyimpanan demo di localStorage browser.
 
-## Publikasi GitHub Pages
-Folder ini berada di `eduessay/` dalam repository Komputasiana. Jika GitHub Pages repository menerbitkan root branch `main`, halaman akan tersedia di:
-
+## Buka melalui GitHub Pages
+Jika repository menerbitkan root branch `main`, coba:
 https://arifulamar.github.io/komputasiana/eduessay/
 
-Jika Pages memakai GitHub Actions yang hanya menerbitkan folder build tertentu, folder ini tidak otomatis ikut terbit. Periksa Settings → Pages dan workflow repository.
+File sumber:
+https://github.com/Arifulamar/komputasiana/blob/main/eduessay/index.html
 
-## Batasan keamanan
-Ini hanya prototipe frontend. Peran yang dipilih pada UI tidak mengamankan data. Jangan masukkan data pribadi siswa atau gunakan untuk ujian resmi. Belum ada autentikasi server, backend API, database cloud, token ujian, timer server, AI, atau audit log yang terlindungi.
+## Penting tentang AI dan keamanan
+Tombol "Simulasikan pemeriksaan AI" hanya mendemonstrasikan alur UI. Skor simulasi berdasarkan panjang jawaban, bukan analisis AI dan tidak boleh digunakan untuk penilaian akademik. AI sesungguhnya belum terhubung.
 
-## Langkah berikutnya
-1. Buat backend Rust + Actix Web.
-2. Tambahkan PostgreSQL dan isolasi data antar-sekolah.
-3. Implementasikan login dan RBAC di server.
-4. Simpan jawaban ke server dengan versi/autosave dan idempotensi.
-5. Tambahkan penilaian AI berbasis rubrik dengan persetujuan guru.
-6. Uji keamanan, aksesibilitas, backup/restore, dan beban ujian bersamaan.
+Data hanya tersimpan pada browser yang digunakan dan tidak tersinkron ke guru atau perangkat lain. Jangan memasukkan data pribadi siswa atau menggunakan versi ini untuk ujian resmi. Pemilihan menu/peran bukan pengamanan akses.
+
+## Langkah menuju produksi
+1. Backend Rust + Actix Web dan PostgreSQL.
+2. Autentikasi, peran, dan isolasi data per sekolah.
+3. Penyimpanan jawaban server-side dengan autosave, versi, dan pemulihan koneksi.
+4. Integrasi AI di backend; simpan API key sebagai secret, jangan pernah di frontend.
+5. Penilaian AI menggunakan rubrik, penjelasan skor, versi model, dan persetujuan guru.
+6. Uji keamanan, aksesibilitas, beban, backup/restore, serta kepatuhan perlindungan data.
